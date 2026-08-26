@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 1. SEO META TAGS -->
+    <title>ELMA | Premium Dry Fruits Gift Box & Luxury Gifting India</title>
+    <meta name="description" content="Discover ELMA's premium dry fruits gift boxes. Artisanal nuts and raisins sourced from Dubai. Perfect for corporate gifting, weddings, and festive celebrations.">
+    <meta name="keywords" content="dry fruits gift box, premium dry fruits, luxury nuts gift box, buy dry fruits online india, diwali dry fruit gifts, corporate gifting delhi">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="ELMA | Luxury Dry Fruit Gift Boxes">
+    <meta property="og:description" content="Nature, beautifully presented. Hand-selected premium dry fruits and nuts in artisan gift cases.">
+    <meta property="og:image" content="product2/Gift_box_with_glass_jars_202608222109.jpeg">
+
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FDFCF8',
+                        gold: '#C5A059',
+                        charcoal: '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:italic,wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Gift Basket - Premium Dry Fruits Gift Box",
+        "image": "product1/Golden_wire_mesh_gift_basket_202608222048.jpeg",
+        "description": "Artisanal gold-mesh wire basket with premium dry fruits in reusable glass jars.",
+        "offers": { "@type": "Offer", "price": "1099", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Signature Box - Luxury Nut Selection",
+        "image": "product2/Gift_box_with_glass_jars_202608222109.jpeg",
+        "description": "Premium wooden case with golden satin lining and designer glass jars.",
+        "offers": { "@type": "Offer", "price": "1599", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Serving Tray - Royal Dry Fruit Platter",
+        "image": "product3/Gold_serving_tray_display_2K_202608222039.jpeg",
+        "description": "5-section platter embossed with traditional royal patterns in gold finish.",
+        "offers": { "@type": "Offer", "price": "599", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+      }
+    ]
+    </script>
+
+    <style>
+        :root { --ivory: #FDFCF8; --gold: #C5A059; --charcoal: #1A1A1A; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--charcoal); overflow-x: hidden; cursor: auto; }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        #main-nav { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); letter-spacing: 0.15em; }
+        .nav-link { font-size: 12px; font-weight: 600; text-transform: uppercase; white-space: nowrap; transition: opacity 0.5s ease; }
+        .nav-sticky { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding-top: 1.2rem !important; padding-bottom: 1.2rem !important; color: var(--charcoal) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-sticky #nav-logo { transform: scale(0.85); transition: transform 0.5s ease; }
+        .nav-sticky #nav-phone { opacity: 0; pointer-events: none; }
+
+        .media-container { position: relative; width: 100%; height: 100%; overflow: hidden; background-color: #eee; }
+        .media-container img, .media-container video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .media-container:hover img, .media-container:hover video { transform: scale(1.05); }
+        
+        .brand-watermark {
+            position: absolute; bottom: 10px; right: 10px; z-index: 30;
+            background: rgba(253, 252, 248, 0.9); border: 1px solid var(--gold);
+            padding: 3px 7px; font-size: 9px; letter-spacing: 1px;
+            font-weight: 800; color: var(--gold); text-transform: uppercase;
+            pointer-events: none; border-radius: 1px;
+        }
+
+        .carousel-item { display: none; width: 100%; height: 100%; }
+        .carousel-item.active { display: block; animation: fadeImg 0.8s ease-in-out; }
+        @keyframes fadeImg { from { opacity: 0; } to { opacity: 1; } }
+
+        .reveal { opacity: 0; transform: translateY(30px); }
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; z-index: 1000; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; }
+        
+        #hero-video-wrap { position: absolute; inset: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #3a2f22, #1a1512); }
+        #hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%); z-index: 5; transition: background 0.3s ease; }
+        .hero-emblem {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 340px; height: 340px; border-radius: 50%;
+            border: 1px solid rgba(197,160,89,0.5);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 6; pointer-events: none; opacity: 0.55;
+        }
+        .hero-emblem::before {
+            content: 'ELMA'; font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 14px; letter-spacing: 0.3em; color: var(--gold);
+        }
+
+        #preloader { position: fixed; inset: 0; background: var(--ivory); z-index: 3000; display: flex; align-items: center; justify-content: center; }
+        #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); width: 0%; z-index: 2100; transition: width 0.1s ease-out; }
+
+        .pulse-dot { width: 6px; height: 6px; background: #25D366; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        #cursor-dot { width: 6px; height: 6px; background: var(--gold); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); display: none; }
+        #cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(197,160,89,0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: none; }
+
+        .chip { border: 1px solid #e5e7eb; transition: all 0.3s; cursor: pointer; padding: 8px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .chip.selected { border-color: var(--gold); background: var(--gold); color: white; }
+        #cart-drawer { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        #cart-drawer.open { transform: translateX(0); }
+        
+        #basket-popover { display: none; position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; }
+        .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }
+        .modal-content { position: relative; width: 90%; max-width: 450px; background: var(--ivory); padding: 40px; border-radius: 2px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+
+        .btn-ripple { position: relative; overflow: hidden; }
+        .ripple { position: absolute; background: rgba(197, 160, 89, 0.4); border-radius: 50%; transform: scale(0); animation: ripple-effect 0.6s linear; pointer-events: none; }
+        @keyframes ripple-effect { to { transform: scale(4); opacity: 0; } }
+
+        .audio-toggle { position: absolute; bottom: 20px; left: 20px; z-index: 40; background: rgba(0,0,0,0.5); color: white; padding: 8px; border-radius: 50%; cursor: pointer; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
+
+        @media (hover: hover) and (pointer: fine) { #cursor-dot, #cursor-ring { display: block; } }
+        @media (prefers-reduced-motion: reduce) { 
+            .reveal, .pulse-dot, #cursor-ring, .media-container img { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BASKET SELECTION POPOVER -->
+    <div id="basket-popover">
+        <div class="modal-backdrop" onclick="closeBasketPopover()"></div>
+        <div class="modal-content">
+            <button onclick="closeBasketPopover()" class="absolute top-6 right-6 text-xl text-gray-300 hover:text-black">✕</button>
+            <div class="space-y-8">
+                <div class="text-center">
+                    <!-- BUG FIX: Dynamically set via JS -->
+                    <h4 id="popover-product-name" class="text-xs uppercase tracking-[0.3em] font-bold text-gold mb-2">PRODUCT NAME</h4>
+                    <p class="text-2xl font-light">Select 4 Dry Fruits</p>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">(125g each — 500g Total)</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3" id="popover-selection-grid"></div>
+
+                <div class="pt-4 space-y-4">
+                    <div class="flex justify-between items-center text-[10px] uppercase tracking-widest font-bold">
+                        <span class="text-gray-300">Selection Status</span>
+                        <span id="popover-selection-count" class="text-gold">0 / 4</span>
+                    </div>
+                    <button id="popover-action-btn" onclick="confirmPopoverAction()" class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold opacity-30 cursor-not-allowed transition-all">Confirm Selection</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRE-LOADER -->
+    <div id="preloader">
+        <div class="serif italic text-gold text-2xl tracking-[0.4em] uppercase" id="loader-text">ELMA</div>
+    </div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-bar"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- CART DRAWER -->
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white z-[2000] shadow-2xl flex flex-col p-8">
+        <div class="flex justify-between items-center mb-12">
+            <h3 class="text-2xl font-light uppercase tracking-widest">Your Cart</h3>
+            <button onclick="toggleCart()" class="text-xl">✕</button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto space-y-8"></div>
+        <div class="pt-8 border-t border-gray-100">
+            <div class="flex justify-between text-xl font-light mb-8">
+                <span>Total</span>
+                <span id="cart-total" class="text-gold">₹ 0</span>
+            </div>
+            <button onclick="checkoutCart()" class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold hover:bg-gold transition">Proceed to WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav" class="fixed top-0 w-full z-[1000] px-6 md:px-12 py-10 flex justify-between items-center text-white">
+        <div class="flex-1">
+            <a href="#" onclick="showHome()" id="nav-logo" class="inline-block text-2xl tracking-[0.4em] font-light">ELMA</a>
+        </div>
+        
+        <div class="hidden lg:flex gap-10 justify-center">
+            <a href="#collection" class="nav-link hover:text-gold transition" onclick="showHome()">The Collection</a>
+            <a href="#story" class="nav-link hover:text-gold transition" onclick="showHome()">Our Story</a>
+            <a href="#contact" class="nav-link hover:text-gold transition" onclick="showHome()">Contact Us</a>
+        </div>
+
+        <div class="flex-1 flex justify-end items-center gap-6">
+            <span id="nav-phone" class="nav-link hidden md:block opacity-90">Order: +91 9315328460</span>
+            <button onclick="toggleCart()" class="relative">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            </button>
+            <button id="menu-toggle" class="lg:hidden text-2xl">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[1100] translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8">
+        <button id="menu-close" class="absolute top-8 right-8 text-3xl">✕</button>
+        <a href="#collection" class="text-2xl font-light" onclick="toggleMenu(); showHome();">The Collection</a>
+        <a href="#story" class="text-2xl font-light" onclick="toggleMenu(); showHome();">Our Story</a>
+        <a href="#contact" class="text-2xl font-bold text-gold" onclick="toggleMenu(); showHome();">Contact Us</a>
+    </div>
+
+    <!-- MAIN HOME VIEW -->
+    <div id="view-home">
+        <!-- HERO SECTION -->
+        <header id="hero-header" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <div id="hero-video-wrap">
+                <video id="hero-video" autoplay muted loop playsinline poster="brand/hero-fallback.jpg" onerror="this.parentElement.style.background='#1a1512'">
+                    <source src="brand/Nuts_and_raisins_falling_202608222134.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-scrim" id="hero-fade-scrim"></div>
+            <div class="hero-emblem"></div>
+
+            <div class="relative z-10 px-6 max-w-4xl">
+                <h1 class="text-white text-7xl md:text-[9rem] font-extralight tracking-tighter mb-4 leading-none reveal">
+                    ELMA <span class="sr-only">Premium Dry Fruits Gift Boxes & Luxury Gifting India</span>
+                </h1>
+                <div class="flex flex-col md:flex-row gap-4 justify-center reveal pt-8">
+                    <a href="#collection" class="px-12 py-5 bg-white text-black text-xs uppercase tracking-[0.3em] hover:bg-gold hover:text-white transition-all">Explore Collection</a>
+                    <a href="#contact" class="px-12 py-5 border border-white/30 text-white text-xs uppercase tracking-[0.3em] hover:bg-white/10 transition-all">Enquire for Bulk</a>
+                </div>
+            </div>
+            <div class="brand-watermark">ELMA</div>
+        </header>
+
+        <!-- COLLECTION -->
+        <section id="collection" class="py-32 px-6 md:px-20 bg-ivory">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="mb-24 reveal">
+                    <h2 class="text-5xl md:text-7xl font-light tracking-tight mb-4 text-charcoal">The Collection</h2>
+                    <p class="text-gray-400 uppercase text-xs tracking-[0.4em] font-semibold">Exquisite selections for every palate</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-12" id="homepage-grid"></div>
+            </div>
+        </section>
+
+        <!-- STORY -->
+        <section id="story" class="py-40 px-6 md:px-20 bg-white">
+            <div class="max-w-screen-xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-10 reveal" id="story-text-container">
+                    <h2 class="text-6xl font-light leading-tight">The <span class="serif italic">ELMA</span> Narrative</h2>
+                    <div class="w-20 h-[1px] bg-gold"></div>
+                    <div class="space-y-6 text-gray-500 text-lg font-light leading-relaxed story-paragraphs">
+                        <p>ELMA was born from a desire to transform the simple act of sharing <strong>premium dry fruits</strong> into a refined ritual. We believe that nature’s bounty deserves more than generic packaging; it deserves a stage. By meticulously sourcing current-season harvests from Dubai and global heritage markets, we ensure every <strong>nut and raisin gift box</strong> meets a standard of crunch and flavor rarely found in ordinary markets.</p>
+                        <p>Our philosophy centers on the 'Keepsake Experience.' Each ELMA selection is housed in reusable glass jars, hand-finished wooden cases, or artisan gold trays. These aren't just containers—they are designed as <strong>luxury dry fruit hampers</strong> to be integrated into your home long after the contents have been enjoyed, serving as a lasting reminder of a thoughtful gesture.</p>
+                        <p>Whether it is a festival celebration, a milestone wedding, or a corporate token of appreciation, ELMA provides a <strong>dry fruit gift box</strong> that speaks of quality, health, and effortless sophistication. We invite you to gift not just a snack, but a beautifully presented piece of nature.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 pt-6 border-t border-gray-100">
+                        <div>
+                            <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Purity & Selection</h4>
+                            <p class="text-xs text-gray-400">Every batch is hand-sorted for size and consistency, ensuring only the most premium grades reach our jars.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Sustainable Luxury</h4>
+                            <p class="text-xs text-gray-400">Our packaging is 100% plastic-free and crafted for longevity, encouraging reuse and reducing gifting waste.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-container shadow-2xl reveal aspect-square lg:aspect-auto parallax-img">
+                    <img src="product2/Editing_gift_box_photo_2K_202608222109.jpeg" alt="ELMA Luxury Gifting Presentation" class="rounded-sm" onerror="this.src='https://placehold.co/600x600/fdfcf8/c5a059?text=ELMA+PREMIUM'">
+                    <div class="brand-watermark">ELMA</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="py-32 px-6 md:px-20 bg-ivory">
+            <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-20">
+                <div class="space-y-12 reveal">
+                    <h2 class="text-5xl font-light">Contact Us</h2>
+                    <div class="space-y-6 text-base">
+                        <div class="flex items-center gap-6"><span class="text-gold serif italic text-2xl font-bold">Call</span> <span class="tracking-widest">+91 9315328460</span></div>
+                        <div class="flex items-center gap-6"><span class="text-gold serif italic text-2xl font-bold">Mail</span> <span class="tracking-widest lowercase">elma_dryfruits@gmail.com</span></div>
+                    </div>
+                </div>
+                <div class="bg-white p-10 md:p-16 shadow-sm reveal">
+                    <!-- BUG FIX: Validation added -->
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                        <div class="space-y-8">
+                            <input type="text" id="form-name" placeholder="Your Name" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light">
+                            <input type="text" id="form-contact" placeholder="Phone / Email" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light">
+                            <textarea id="form-message" placeholder="Tell us what you are looking for..." rows="4" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light"></textarea>
+                            <button class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold hover:bg-gold transition">Send Enquiry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCT VIEW -->
+    <div id="view-product" class="hidden min-h-screen pt-32 pb-20 px-6 md:px-20 bg-white">
+        <div class="max-w-screen-2xl mx-auto">
+            <a href="#collection" onclick="showHome()" class="text-xs uppercase tracking-[0.3em] text-gray-400 hover:text-gold transition inline-flex items-center gap-2 mb-12">← Back to Collection</a>
+            
+            <div class="flex flex-col lg:flex-row gap-20">
+                <div class="lg:w-3/5">
+                    <div class="relative group overflow-hidden">
+                        <div class="media-container aspect-[16/10] bg-gray-50 rounded-sm mb-6" id="product-carousel"></div>
+                        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm z-50">←</button>
+                        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm z-50">→</button>
+                    </div>
+                    <div class="flex justify-center gap-4 mb-12" id="carousel-dots"></div>
+
+                    <div class="space-y-20 border-t border-gray-100 pt-20">
+                        <div class="space-y-8">
+                            <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-gray-300">About this item</h4>
+                            <ul id="p-bullets" class="space-y-6 text-gray-600 font-light"></ul>
+                        </div>
+                        <div class="space-y-8">
+                            <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-gray-300">Top Highlights</h4>
+                            <div id="p-highlights" class="grid grid-cols-2 gap-y-4 border-l border-gold/20 pl-6"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-12 pt-12 border-t border-gray-100">
+                            <div class="space-y-6">
+                                <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-gray-300">Product Details</h4>
+                                <div id="p-details" class="text-sm space-y-2 font-light"></div>
+                            </div>
+                            <div class="space-y-6">
+                                <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-gray-300">Marketed By</h4>
+                                <div class="text-sm space-y-2 font-light text-gray-500">
+                                    <p class="font-bold text-charcoal">Elma Dry Fruits and Nuts</p>
+                                    <p>DDA Janta Flats, Manglapuri, Palam, Delhi – 110045</p>
+                                    <p>FSSAI: 23326011004828</p>
+                                    <p>GSTIN: 07AJRPA7631F1Z8</p>
+                                    <p>Care: +91 9315328460</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-2/5 space-y-10 lg:sticky lg:top-32 h-fit">
+                    <div>
+                        <div class="inline-block px-3 py-1 bg-ivory text-xs uppercase tracking-widest font-bold border border-gold/20 text-gold mb-4 italic">Dubai Premium Grade</div>
+                        <div class="text-[10px] uppercase tracking-widest text-gold font-bold mb-1"><span class="pulse-dot mr-1"></span> In Stock</div>
+                        <h2 id="p-title" class="text-6xl font-light mb-4"></h2>
+                        <p id="p-price" class="text-3xl font-extralight tracking-tighter text-gold"></p>
+                    </div>
+
+                    <p id="p-desc" class="text-gray-500 text-lg font-light leading-relaxed"></p>
+
+                    <!-- CUSTOMIZER GRID (Generalized for all) -->
+                    <div id="p-customizer" class="hidden space-y-6 pt-6 border-t border-gray-100">
+                        <div class="flex justify-between items-end">
+                            <h5 class="text-[10px] uppercase tracking-[0.2em] font-bold">Select 4 Dry Fruits (125g each)</h5>
+                            <span id="selection-count" class="text-[10px] font-bold text-gold">0 / 4</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3" id="selection-grid"></div>
+                    </div>
+
+                    <div class="pt-8">
+                        <div class="grid grid-cols-2 gap-4">
+                            <button onclick="handleAction('buy')" class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold hover:bg-gold transition">Buy Now</button>
+                            <button onclick="handleAction('add', this)" class="btn-ripple w-full py-6 border border-black/10 text-xs uppercase tracking-widest font-bold hover:bg-black hover:text-white transition">Add to Cart</button>
+                        </div>
+                        <div class="flex flex-col gap-2 mt-6">
+                            <div class="text-[9px] text-gray-400 uppercase tracking-widest font-medium"><span class="pulse-dot mr-2"></span> Concierge online: Typical reply < 10 mins</div>
+                        </div>
+                    </div>
+
+                    <div class="pt-12 border-t border-gray-100">
+                        <h5 class="text-xs uppercase tracking-widest font-bold text-gray-300 mb-6">Pairs well with...</h5>
+                        <div id="p-pairing" class="flex items-center gap-4 cursor-pointer group"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-white/50 py-24 px-6 md:px-20 text-xs uppercase tracking-[0.2em]">
+        <div class="max-w-screen-xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+            <div class="space-y-6">
+                <div class="text-white text-2xl tracking-[0.4em] font-light">ELMA</div>
+                <p class="normal-case tracking-normal text-sm font-light leading-relaxed">Nature, beautifully presented. <br> Crafted for soulful gifting.</p>
+            </div>
+            <div>
+                <h5 class="text-white mb-8">Links</h5>
+                <ul class="space-y-4">
+                    <li><a href="#collection" class="hover:text-white" onclick="showHome()">Collection</a></li>
+                    <li><a href="#story" class="hover:text-white" onclick="showHome()">Our Story</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white mb-8">Contact</h5>
+                <ul class="space-y-4">
+                    <li>+91 9315328460</li>
+                    <li class="lowercase">elma_dryfruits@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white mb-8">Follow</h5>
+                <ul class="space-y-4">
+                    <li><a href="https://www.instagram.com/elma_dryfruitsnuts/" class="hover:text-gold transition">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA & STATE ---
+        let currentIdx = 0, activeMedia = [], selectedOptions = [], cart = [], currentProductId = null;
+        let pendingBasketAction = null, pendingProductId = null; // BUG FIX: Track generalized popover product
+        let isGlobalMuted = true; // BUG FIX: Persist mute state
+        const originalTitle = document.title;
+        const dryFruitOptions = ["Walnuts", "Pistachio", "Almonds", "Cashews", "Raisins", "Fox Nut (Makhana)"];
+
+        const products = {
+            1: {
+                id: 1, title: "The Gift Basket", price: 1099,
+                desc: "A hand-selected ensemble of our finest dry fruits in reusable glass jars, presented within an artisanal gold-mesh wire basket. Perfect for meaningful family celebrations.",
+                media: [
+                    { type: 'image', src: 'product1/Golden_wire_mesh_gift_basket_202608222048.jpeg' },
+                    { type: 'video', src: 'product1/Elma_gift_basket_commercial_202608221956.mp4' },
+                    { type: 'image', src: 'product1/Wire_mesh_gift_basket_photography_202608222051.jpeg' }
+                ],
+                bullets: ["<strong>PREMIUM GIFT BASKET</strong> — Elegant gold-wire ensemble.", "<strong>WHAT'S INSIDE</strong> — 4 Reusable glass jars (125g each).", "<strong>PREMIUM INGREDIENTS</strong> — Sourced globally for maximum crunch.", "<strong>ARTISAN PACKAGING</strong> — Repurposable home decor centerpiece."],
+                highlights: { "Brand": "Elma", "Diet": "Vegetarian", "Weight": "500g", "Type": "Gift Basket" },
+                details: { "Origin": "Dubai / India", "Dietary": "Vegetarian", "Net Weight": "500g" },
+                pairing: { id: 3, title: "Serving Tray", img: "product3/Gold_serving_tray_display_2K_202608222039.jpeg" }
+            },
+            2: {
+                id: 2, title: "The Signature Box", price: 1599,
+                desc: "Our most premium offering. A timeless deep-toned wooden case with luxurious golden satin lining, containing four designer glass jars filled with the season's best nuts.",
+                media: [
+                    { type: 'image', src: 'product2/Gift_box_with_glass_jars_202608222109.jpeg' },
+                    { type: 'video', src: 'product2/Lid_rises_revealing_golden_satin_202608221122.mp4' },
+                    { type: 'image', src: 'product2/Gift_case_with_jars_of_202608221122.jpeg' }
+                ],
+                bullets: ["<strong>SIGNATURE WOODEN CASE</strong> — Hand-finished wooden box.", "<strong>ELITE SELECTION</strong> — Includes 4 glass jars (200g each).", "<strong>QUALITY CHECKED</strong> — Laser-inspected for freshness.", "<strong>KEEPSAKE PACKAGING</strong> — Heavy-duty box for organization."],
+                highlights: { "Brand": "Elma", "Diet": "Vegetarian", "Weight": "800g", "Type": "Luxury Gift Box" },
+                details: { "Origin": "India / Dubai", "Dietary": "Vegetarian", "Net Weight": "800g" },
+                pairing: { id: 1, title: "The Gift Basket", img: "product1/Golden_wire_mesh_gift_basket_202608222048.jpeg" }
+            },
+            3: {
+                id: 3, title: "The Serving Tray", price: 599,
+                desc: "A sophisticated 5-section platter embossed with traditional royal patterns. Crafted in a premium gold-tone finish, designed for effortless hosting.",
+                media: [
+                    { type: 'image', src: 'product3/Gold_serving_tray_display_2K_202608222039.jpeg' },
+                    { type: 'video', src: 'product3/Gold_serving_tray_with_nuts_202608222026.mp4' },
+                    { type: 'image', src: 'product3/Gold_tray_with_dry_fruits_202608222040.jpeg' }
+                ],
+                bullets: ["<strong>ARTISAN SERVING TRAY</strong> — Features five distinct sections.", "<strong>EMBOSSED DESIGN</strong> — Traditional royal patterns etched.", "<strong>WHAT'S INSIDE</strong> — Curated mix of five nut varieties.", "<strong>HOSTING ESSENTIAL</strong> — Lightweight and durable."],
+                highlights: { "Brand": "Elma", "Diet": "Vegetarian", "Weight": "500g", "Type": "Serving Platter" },
+                details: { "Origin": "India", "Dietary": "Vegetarian", "Net Weight": "500g" },
+                pairing: { id: 2, title: "Signature Box", img: "product2/Gift_box_with_glass_jars_202608222109.jpeg" }
+            }
+        };
+
+        // --- CONTACT FORM VALIDATION ---
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value.trim();
+            const contact = document.getElementById('form-contact').value.trim();
+            const msg = document.getElementById('form-message').value.trim();
+            if(!name || !contact || !msg) { alert("Please fill in all fields."); return; }
+            alert('Message sent to ELMA Concierge.');
+            e.target.reset();
+        }
+
+        // --- HOMEPAGE RENDERING ---
+        function renderHomepage() {
+            const grid = document.getElementById('homepage-grid');
+            grid.innerHTML = Object.values(products).map(p => `
+                <div class="group reveal">
+                    <div class="media-container aspect-[4/5] mb-6 shadow-sm cursor-pointer parallax-img" onclick="openProduct(${p.id})">
+                        <img src="${p.media[0].src}" alt="ELMA ${p.title}" onerror="this.src='https://placehold.co/400x500/fdfcf8/c5a059?text=ELMA'">
+                        <div class="brand-watermark">ELMA</div>
+                    </div>
+                    <div class="flex justify-between items-start mb-2 px-1">
+                        <div class="space-y-1">
+                            <div class="text-[9px] uppercase tracking-widest text-gold font-bold"><span class="pulse-dot mr-1"></span> In Stock</div>
+                            <h3 onclick="openProduct(${p.id})" class="text-xl font-light cursor-pointer">${p.title}</h3>
+                        </div>
+                        <p class="text-gold text-base tracking-widest font-medium">₹ ${p.price}</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mt-6">
+                        <button onclick="buyNow(${p.id})" class="py-4 bg-black text-white text-[10px] uppercase tracking-widest">Buy Now</button>
+                        <button onclick="addToCart(${p.id}, this)" class="py-4 border border-black/10 text-[10px] uppercase tracking-widest">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- POPOVER LOGIC ---
+        function openBasketPopover(action, id) {
+            pendingBasketAction = action; 
+            pendingProductId = id; 
+            selectedOptions = [];
+            // BUG FIX: Dynamic popover name
+            document.getElementById('popover-product-name').innerText = products[id].title;
+            const popover = document.getElementById('basket-popover');
+            popover.style.display = 'flex';
+            renderPopoverSelectionGrid();
+            gsap.fromTo('.modal-content', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4 });
+        }
+
+        function closeBasketPopover() { 
+            document.getElementById('basket-popover').style.display = 'none'; 
+            // BUG FIX: Reset state
+            pendingBasketAction = null;
+            pendingProductId = null;
+        }
+
+        function renderPopoverSelectionGrid() {
+            const grid = document.getElementById('popover-selection-grid');
+            grid.innerHTML = dryFruitOptions.map(opt => `<div class="chip ${selectedOptions.includes(opt) ? 'selected' : ''}" onclick="togglePopoverOption('${opt}')">${opt}</div>`).join('');
+            document.getElementById('popover-selection-count').innerText = `${selectedOptions.length} / 4`;
+            const btn = document.getElementById('popover-action-btn');
+            if(selectedOptions.length === 4) { btn.classList.remove('opacity-30', 'cursor-not-allowed'); btn.innerText = pendingBasketAction === 'buy' ? 'Confirm & Buy Now' : 'Confirm & Add to Cart'; }
+            else { btn.classList.add('opacity-30', 'cursor-not-allowed'); btn.innerText = 'Confirm Selection'; }
+        }
+
+        function togglePopoverOption(opt) {
+            if(selectedOptions.includes(opt)) { selectedOptions = selectedOptions.filter(i => i !== opt); }
+            else if (selectedOptions.length < 4) { selectedOptions.push(opt); }
+            renderPopoverSelectionGrid();
+        }
+
+        function confirmPopoverAction() {
+            if(selectedOptions.length !== 4) return;
+            const p = products[pendingProductId]; // BUG FIX: Use tracked ID
+            const item = { ...p, selectedOptions: [...selectedOptions] };
+            if(pendingBasketAction === 'buy') { window.open(`https://wa.me/919315328460?text=${encodeURIComponent(formatWhatsApp([item]))}`, '_blank'); }
+            else { cart.push(item); updateCartUI(); toggleCart(true); }
+            closeBasketPopover();
+        }
+
+        // --- PRODUCT VIEW LOGIC ---
+        function openProduct(id) {
+            const p = products[id]; currentProductId = id; activeMedia = p.media; currentIdx = 0; selectedOptions = [];
+            document.getElementById('p-title').innerText = p.title;
+            document.getElementById('p-price').innerText = `₹ ${p.price}`;
+            document.getElementById('p-desc').innerText = p.desc;
+            document.getElementById('p-bullets').innerHTML = p.bullets.map(b => `<li>${b}</li>`).join('');
+            document.getElementById('p-highlights').innerHTML = Object.entries(p.highlights).map(([k,v]) => `<div class="text-[10px] uppercase tracking-widest text-gray-400">${k}</div><div class="text-xs font-bold">${v}</div>`).join('');
+            document.getElementById('p-details').innerHTML = Object.entries(p.details).map(([k,v]) => `<div class="flex justify-between border-b border-gray-50 py-4"><span class="text-gray-400 uppercase text-[10px]">${k}</span><span>${v}</span></div>`).join('');
+            
+            // BUG FIX: Show customizer for all products (ID 1, 2, 3)
+            const custom = document.getElementById('p-customizer');
+            custom.classList.remove('hidden'); 
+            renderSelectionGrid();
+            
+            renderCarousel(true); // true = build initial
+            
+            const pairEl = document.getElementById('p-pairing');
+            pairEl.innerHTML = `<img src="${p.pairing.img}" class="w-16 h-16 object-cover rounded-sm border border-gray-100 group-hover:border-gold transition"><span class="text-xs uppercase tracking-widest font-bold text-gray-400 group-hover:text-gold transition">${p.pairing.title}</span>`;
+            pairEl.onclick = () => openProduct(p.pairing.id);
+
+            document.getElementById('view-home').classList.add('hidden');
+            document.getElementById('view-product').classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        function renderSelectionGrid() {
+            const grid = document.getElementById('selection-grid');
+            grid.innerHTML = dryFruitOptions.map(opt => `<div class="chip ${selectedOptions.includes(opt) ? 'selected' : ''}" onclick="toggleOption('${opt}')">${opt}</div>`).join('');
+            document.getElementById('selection-count').innerText = `${selectedOptions.length} / 4`;
+        }
+
+        function toggleOption(opt) {
+            if(selectedOptions.includes(opt)) { selectedOptions = selectedOptions.filter(i => i !== opt); }
+            else if (selectedOptions.length < 4) { selectedOptions.push(opt); }
+            renderSelectionGrid();
+        }
+
+        // --- CAROUSEL LOGIC ---
+        function renderCarousel(initial = false) {
+            const cont = document.getElementById('product-carousel');
+            const dots = document.getElementById('carousel-dots');
+            
+            if(initial) {
+                cont.innerHTML = activeMedia.map((m, i) => `
+                    <div class="carousel-item relative h-full ${i === 0 ? 'active' : ''}" data-index="${i}">
+                        ${m.type === 'video' ? `
+                            <video loop playsinline poster="brand/hero-fallback.jpg" id="p-video-${i}">
+                                <source src="${m.src}" type="video/mp4">
+                            </video>
+                            <button onclick="toggleAudio(${i})" class="audio-toggle">${isGlobalMuted ? '🔇' : '🔊'}</button>
+                        ` : `<img src="${m.src}" onerror="this.src='https://placehold.co/800x500/fdfcf8/c5a059?text=ELMA'">`}
+                        <div class="brand-watermark">ELMA</div>
+                    </div>
+                `).join('');
+                dots.innerHTML = activeMedia.map((_, i) => `<div class="w-2 h-2 rounded-full ${i === 0 ? 'bg-gold' : 'bg-gray-200'} cursor-pointer" onclick="setSlide(${i})"></div>`).join('');
+            }
+
+            // BUG FIX: Handle Video Playback/Pause/Mute State
+            const items = cont.querySelectorAll('.carousel-item');
+            items.forEach((item, i) => {
+                const video = item.querySelector('video');
+                if(i === currentIdx) {
+                    item.classList.add('active');
+                    if(video) {
+                        video.muted = isGlobalMuted;
+                        video.play().catch(()=>{});
+                    }
+                } else {
+                    item.classList.remove('active');
+                    if(video) video.pause();
+                }
+            });
+
+            const dotEls = dots.querySelectorAll('div');
+            dotEls.forEach((dot, i) => {
+                dot.className = `w-2 h-2 rounded-full ${i === currentIdx ? 'bg-gold' : 'bg-gray-200'} cursor-pointer`;
+            });
+        }
+
+        function toggleAudio(i) { 
+            isGlobalMuted = !isGlobalMuted;
+            const videos = document.querySelectorAll('#product-carousel video');
+            videos.forEach(v => v.muted = isGlobalMuted);
+            // BUG FIX: Update all icons
+            const buttons = document.querySelectorAll('.audio-toggle');
+            buttons.forEach(b => b.innerText = isGlobalMuted ? '🔇' : '🔊');
+        }
+
+        function setSlide(i) { currentIdx = i; renderCarousel(); }
+        function nextSlide() { currentIdx = (currentIdx + 1) % activeMedia.length; renderCarousel(); }
+        function prevSlide() { currentIdx = (currentIdx - 1 + activeMedia.length) % activeMedia.length; renderCarousel(); }
+
+        // --- ACTION HANDLERS ---
+        function handleAction(action, btn) {
+            const p = products[currentProductId];
+            if(selectedOptions.length !== 4) { alert("Please select 4 dry fruits."); return; }
+            const item = {...p, selectedOptions: [...selectedOptions]};
+            if(action === 'buy') { window.open(`https://wa.me/919315328460?text=${encodeURIComponent(formatWhatsApp([item]))}`, '_blank'); }
+            else { 
+                cart.push(item); updateCartUI(); toggleCart(true); 
+                if(btn) { const t = btn.innerText; btn.innerText = "✓ Added"; setTimeout(()=>btn.innerText=t, 2000); }
+            }
+        }
+
+        window.buyNow = (id) => {
+            // BUG FIX: Generalize popover trigger for homepage context
+            if(document.getElementById('view-product').classList.contains('hidden')) { openBasketPopover('buy', id); }
+            else { handleAction('buy'); }
+        };
+        window.addToCart = (id, btn) => {
+            if(document.getElementById('view-product').classList.contains('hidden')) { openBasketPopover('add', id); }
+            else { handleAction('add', btn); }
+        };
+
+        function formatWhatsApp(items) {
+            let msg = "*NEW ORDER – ELMA*\n\n";
+            items.forEach((item, i) => {
+                msg += `📦 *Item ${i+1}:* ${item.title}\n💰 *Price:* ₹${item.price}\n`;
+                if(item.selectedOptions && item.selectedOptions.length > 0) { msg += `_Selection (125g each): ${item.selectedOptions.join(', ')}_\n`; }
+                msg += "\n";
+            });
+            const total = items.reduce((sum, item) => sum + item.price, 0);
+            msg += `🛍️ *Total Amount:* ₹${total}`;
+            return msg;
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('cart-total').innerText = `₹ ${total}`;
+            document.getElementById('cart-items').innerHTML = cart.map((item, idx) => `
+                <div class="flex gap-4">
+                    <img src="${item.media[0].src}" class="w-20 h-20 object-cover rounded-sm" onerror="this.src='https://placehold.co/100x100/fdfcf8/c5a059?text=ELMA'">
+                    <div class="flex-1">
+                        <h4 class="text-sm font-bold">${item.title}</h4>
+                        <p class="text-xs text-gold">₹ ${item.price}</p>
+                        <button onclick="cart.splice(${idx}, 1); updateCartUI();" class="text-[9px] uppercase tracking-widest text-gray-300 hover:text-black">Remove</button>
+                    </div>
+                </div>`).join('');
+        }
+
+        // --- GLOBAL UI ---
+        function showHome() { 
+            document.getElementById('view-home').classList.remove('hidden'); 
+            document.getElementById('view-product').classList.add('hidden'); 
+            // Stop detail videos
+            document.querySelectorAll('#product-carousel video').forEach(v => v.pause());
+            window.scrollTo(0,0); 
+        }
+        function toggleCart(f) { document.getElementById('cart-drawer').classList.toggle('open', f); }
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('translate-x-full'); }
+        function checkoutCart() { if(cart.length) window.open(`https://wa.me/919315328460?text=${encodeURIComponent(formatWhatsApp(cart))}`, '_blank'); }
+
+        // --- INITIALIZATION ---
+        window.onload = () => { 
+            renderHomepage(); 
+            gsap.to("#preloader", { opacity: 0, duration: 0.8, onComplete: () => document.getElementById('preloader').style.display = 'none' }); 
+        };
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scroll-bar').style.width = `${progress}%`;
+            window.scrollY > 50 ? nav.classList.add('nav-sticky') : nav.classList.remove('nav-sticky');
+        });
+        const cursorDot = document.getElementById('cursor-dot'); const cursorRing = document.getElementById('cursor-ring');
+        document.addEventListener('mousemove', (e) => { gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.1, opacity: 1 }); gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: 0.4, opacity: 1 }); });
+        
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal').forEach(el => {
+            gsap.to(el, { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } });
+        });
+    </script>
+</body>
+</html>
