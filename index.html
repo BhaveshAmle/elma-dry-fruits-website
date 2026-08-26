@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- SEO META TAGS -->
+    <!-- 1. SEO META TAGS ADDED -->
     <title>ELMA | Premium Dry Fruits Gift Box & Luxury Gifting India</title>
     <meta name="description" content="Discover ELMA's premium dry fruits gift boxes. Artisanal nuts and raisins sourced from Dubai. Perfect for corporate gifting, weddings, and festive celebrations.">
     <meta name="keywords" content="dry fruits gift box, premium dry fruits, luxury nuts gift box, buy dry fruits online india, diwali dry fruit gifts, corporate gifting delhi">
     
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="ELMA | Luxury Dry Fruit Gift Boxes">
+    <meta property="og:description" content="Nature, beautifully presented. Hand-selected premium dry fruits and nuts in artisan gift cases.">
+    <meta property="og:image" content="product2/Gift_box_with_glass_jars_202608222109.jpeg">
+
     <!-- Scripts & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { ivory: '#FDFCF8', gold: '#C5A059', charcoal: '#1A1A1A' }
+                    colors: {
+                        ivory: '#FDFCF8',
+                        gold: '#C5A059',
+                        charcoal: '#1A1A1A',
+                    }
                 }
             }
         }
@@ -24,16 +33,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:italic,wght@400;500;700&display=swap" rel="stylesheet">
 
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Gift Basket - Premium Dry Fruits Gift Box",
+        "image": "product1/Golden_wire_mesh_gift_basket_202608222048.jpeg",
+        "description": "Artisanal gold-mesh wire basket with premium dry fruits in reusable glass jars.",
+        "offers": { "@type": "Offer", "price": "1099", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Signature Box - Luxury Nut Selection",
+        "image": "product2/Gift_box_with_glass_jars_202608222109.jpeg",
+        "description": "Premium wooden case with golden satin lining and designer glass jars.",
+        "offers": { "@type": "Offer", "price": "1599", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "The Serving Tray - Royal Dry Fruit Platter",
+        "image": "product3/Gold_serving_tray_display_2K_202608222039.jpeg",
+        "description": "5-section platter embossed with traditional royal patterns in gold finish.",
+        "offers": { "@type": "Offer", "price": "599", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+      }
+    ]
+    </script>
+
     <style>
         :root { --ivory: #FDFCF8; --gold: #C5A059; --charcoal: #1A1A1A; }
-        html, body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--charcoal); overflow-x: hidden; width: 100%; position: relative; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--charcoal); overflow-x: hidden; cursor: auto; }
         .serif { font-family: 'Playfair Display', serif; }
         
-        #main-nav { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); letter-spacing: 0.15em; z-index: 10000; }
+        #main-nav { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); letter-spacing: 0.15em; }
         .nav-link { font-size: 12px; font-weight: 600; text-transform: uppercase; white-space: nowrap; transition: opacity 0.5s ease; }
-        .nav-sticky { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding-top: 1rem !important; padding-bottom: 1rem !important; color: var(--charcoal) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        
-        .media-container { position: relative; width: 100%; height: 100%; overflow: hidden; background-color: #eee; }
+        .nav-sticky { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding-top: 1.2rem !important; padding-bottom: 1.2rem !important; color: var(--charcoal) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-sticky #nav-logo { transform: scale(0.85); transition: transform 0.5s ease; }
+        .nav-sticky #nav-phone { opacity: 0; pointer-events: none; }
+
+        .media-container { position: relative; width: 100%; height: auto; overflow: hidden; background-color: #eee; }
         .media-container img, .media-container video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
         .media-container:hover img, .media-container:hover video { transform: scale(1.05); }
         
@@ -49,42 +89,51 @@
         .carousel-item.active { display: block; animation: fadeImg 0.8s ease-in-out; }
         @keyframes fadeImg { from { opacity: 0; } to { opacity: 1; } }
 
-        .reveal { opacity: 0; transform: translateY(30px); will-change: transform, opacity; }
+        .reveal { opacity: 0; transform: translateY(30px); }
         .whatsapp-float { position: fixed; bottom: 25px; right: 25px; z-index: 1000; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; }
         
-        #hero-video-wrap { position: absolute; inset: 0; width: 100%; height: 100%; background: #1a1512; }
+        #hero-video-wrap { position: absolute; inset: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #3a2f22, #1a1512); }
         #hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%); z-index: 5; }
-        
+        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%); z-index: 5; transition: background 0.3s ease; }
         .hero-emblem {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 280px; height: 340px; border-radius: 50%;
+            width: 340px; height: 340px; border-radius: 50%;
             border: 1px solid rgba(197,160,89,0.5);
             display: flex; align-items: center; justify-content: center;
             z-index: 6; pointer-events: none; opacity: 0.55;
         }
-        @media (min-width: 768px) { .hero-emblem { width: 340px; } }
+        .hero-emblem::before {
+            content: 'ELMA'; font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 14px; letter-spacing: 0.3em; color: var(--gold);
+        }
 
-        #preloader { position: fixed; inset: 0; background: var(--ivory); z-index: 20000; display: flex; align-items: center; justify-content: center; }
-        #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); width: 0%; z-index: 21000; transition: width 0.1s ease-out; }
+        #preloader { position: fixed; inset: 0; background: var(--ivory); z-index: 3000; display: flex; align-items: center; justify-content: center; }
+        #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); width: 0%; z-index: 2100; transition: width 0.1s ease-out; }
 
-        #cursor-dot { width: 6px; height: 6px; background: var(--gold); position: fixed; border-radius: 50%; pointer-events: none; z-index: 40000; transform: translate(-50%, -50%); opacity: 0; }
-        #cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(197,160,89,0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 40000; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; opacity: 0; }
+        .pulse-dot { width: 6px; height: 6px; background: #25D366; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        #cursor-dot { width: 6px; height: 6px; background: var(--gold); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); display: none; }
+        #cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(197,160,89,0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: none; }
 
         .chip { border: 1px solid #e5e7eb; transition: all 0.3s; cursor: pointer; padding: 8px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
         .chip.selected { border-color: var(--gold); background: var(--gold); color: white; }
-        #cart-drawer { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: 50000; }
+        #cart-drawer { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         #cart-drawer.open { transform: translateX(0); }
         
-        #basket-popover { display: none; position: fixed; inset: 0; z-index: 60000; align-items: center; justify-content: center; }
-        .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
-        .modal-content { position: relative; width: 95%; max-width: 450px; background: var(--ivory); padding: 30px; border-radius: 2px; }
+        #basket-popover { display: none; position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; }
+        .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }
+        .modal-content { position: relative; width: 90%; max-width: 450px; background: var(--ivory); padding: 40px; border-radius: 2px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+
+        .btn-ripple { position: relative; overflow: hidden; }
+        .ripple { position: absolute; background: rgba(197, 160, 89, 0.4); border-radius: 50%; transform: scale(0); animation: ripple-effect 0.6s linear; pointer-events: none; }
+        @keyframes ripple-effect { to { transform: scale(4); opacity: 0; } }
 
         .audio-toggle { position: absolute; bottom: 20px; left: 20px; z-index: 40; background: rgba(0,0,0,0.5); color: white; padding: 8px; border-radius: 50%; cursor: pointer; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
 
-        @media (max-width: 767px) {
-            .section-padding { padding-left: 1.5rem; padding-right: 1.5rem; }
-            #main-nav { padding-left: 1.5rem; padding-right: 1.5rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        @media (hover: hover) and (pointer: fine) { #cursor-dot, #cursor-ring { display: block; } }
+        @media (prefers-reduced-motion: reduce) { 
+            .reveal, .pulse-dot, #cursor-ring, .media-container img { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; } 
         }
     </style>
 </head>
@@ -101,7 +150,9 @@
                     <p class="text-2xl font-light">Select 4 Dry Fruits</p>
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">(125g each — 500g Total)</p>
                 </div>
+                
                 <div class="grid grid-cols-2 gap-3" id="popover-selection-grid"></div>
+
                 <div class="pt-4 space-y-4">
                     <div class="flex justify-between items-center text-[10px] uppercase tracking-widest font-bold">
                         <span class="text-gray-300">Selection Status</span>
@@ -126,10 +177,10 @@
     <div id="cursor-ring"></div>
 
     <!-- CART DRAWER -->
-    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white shadow-2xl flex flex-col p-8">
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white z-[2000] shadow-2xl flex flex-col p-8">
         <div class="flex justify-between items-center mb-12">
             <h3 class="text-2xl font-light uppercase tracking-widest">Your Cart</h3>
-            <button onclick="toggleCart(false)" class="text-xl">✕</button>
+            <button onclick="toggleCart()" class="text-xl">✕</button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto space-y-8"></div>
         <div class="pt-8 border-t border-gray-100">
@@ -142,18 +193,20 @@
     </div>
 
     <!-- NAVIGATION -->
-    <nav id="main-nav" class="fixed top-0 w-full px-6 md:px-12 py-10 flex justify-between items-center text-white">
+    <nav id="main-nav" class="fixed top-0 w-full z-[1000] px-6 md:px-12 py-10 flex justify-between items-center text-white">
         <div class="flex-1">
             <a href="#" onclick="showHome()" id="nav-logo" class="inline-block text-2xl tracking-[0.4em] font-light">ELMA</a>
         </div>
+        
         <div class="hidden lg:flex gap-10 justify-center">
             <a href="#collection" class="nav-link hover:text-gold transition" onclick="showHome()">The Collection</a>
             <a href="#story" class="nav-link hover:text-gold transition" onclick="showHome()">Our Story</a>
             <a href="#contact" class="nav-link hover:text-gold transition" onclick="showHome()">Contact Us</a>
         </div>
+
         <div class="flex-1 flex justify-end items-center gap-6">
             <span id="nav-phone" class="nav-link hidden md:block opacity-90">Order: +91 9315328460</span>
-            <button onclick="toggleCart(true)" class="relative">
+            <button onclick="toggleCart()" class="relative">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
                 <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
             </button>
@@ -161,8 +214,9 @@
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60000] translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8">
-        <button onclick="toggleMenu()" class="absolute top-8 right-8 text-3xl">✕</button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[1100] translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8">
+        <button id="menu-close" class="absolute top-8 right-8 text-3xl">✕</button>
         <a href="#collection" class="text-2xl font-light" onclick="toggleMenu(); showHome();">The Collection</a>
         <a href="#story" class="text-2xl font-light" onclick="toggleMenu(); showHome();">Our Story</a>
         <a href="#contact" class="text-2xl font-bold text-gold" onclick="toggleMenu(); showHome();">Contact Us</a>
@@ -170,6 +224,7 @@
 
     <!-- MAIN HOME VIEW -->
     <div id="view-home">
+        <!-- HERO SECTION -->
         <header id="hero-header" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
             <div id="hero-video-wrap">
                 <video id="hero-video" autoplay muted loop playsinline poster="brand/hero-fallback.jpg" onerror="this.parentElement.style.background='#1a1512'">
@@ -178,8 +233,10 @@
             </div>
             <div class="hero-scrim" id="hero-fade-scrim"></div>
             <div class="hero-emblem"></div>
+
             <div class="relative z-10 px-6 max-w-4xl">
-                <h1 class="text-white text-6xl md:text-[9rem] font-extralight tracking-tighter mb-4 leading-none reveal">
+                <!-- 2. Hidden SEO H1 -->
+                <h1 class="text-white text-7xl md:text-[9rem] font-extralight tracking-tighter mb-4 leading-none reveal">
                     ELMA <span class="sr-only">Premium Dry Fruits Gift Boxes & Luxury Gifting India</span>
                 </h1>
                 <div class="flex flex-col md:flex-row gap-4 justify-center reveal pt-8">
@@ -190,24 +247,37 @@
             <div class="brand-watermark">ELMA</div>
         </header>
 
+        <!-- THE COLLECTION -->
         <section id="collection" class="py-32 section-padding md:px-20 bg-ivory">
             <div class="max-w-screen-2xl mx-auto">
                 <div class="mb-24 reveal">
                     <h2 class="text-5xl md:text-7xl font-light tracking-tight mb-4 text-charcoal">The Collection</h2>
                     <p class="text-gray-400 uppercase text-xs tracking-[0.4em] font-semibold">Exquisite selections for every palate</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12" id="homepage-grid"></div>
+                <div class="grid md:grid-cols-3 gap-12" id="homepage-grid"></div>
             </div>
         </section>
 
+        <!-- OUR STORY -->
         <section id="story" class="py-40 section-padding md:px-20 bg-white">
-            <div class="max-w-screen-xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="max-w-screen-xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
                 <div class="space-y-10 reveal" id="story-text-container">
-                    <h2 class="text-5xl md:text-6xl font-light leading-tight">The <span class="serif italic">ELMA</span> Narrative</h2>
+                    <h2 class="text-6xl font-light leading-tight">The <span class="serif italic">ELMA</span> Narrative</h2>
                     <div class="w-20 h-[1px] bg-gold"></div>
                     <div class="space-y-6 text-gray-500 text-lg font-light leading-relaxed story-paragraphs">
                         <p>ELMA was born from a desire to transform the simple act of sharing <strong>premium dry fruits</strong> into a refined ritual. We believe that nature’s bounty deserves more than generic packaging; it deserves a stage. By meticulously sourcing current-season harvests from Dubai and global heritage markets, we ensure every <strong>nut and raisin gift box</strong> meets a standard of crunch and flavor rarely found in ordinary markets.</p>
                         <p>Our philosophy centers on the 'Keepsake Experience.' Each ELMA selection is housed in reusable glass jars, hand-finished wooden cases, or artisan gold trays. These aren't just containers—they are designed as <strong>luxury dry fruit hampers</strong> to be integrated into your home long after the contents have been enjoyed, serving as a lasting reminder of a thoughtful gesture.</p>
+                        <p>Whether it is a festival celebration, a milestone wedding, or a corporate token of appreciation, ELMA provides a <strong>dry fruit gift box</strong> that speaks of quality, health, and effortless sophistication. We invite you to gift not just a snack, but a beautifully presented piece of nature.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 pt-6 border-t border-gray-100">
+                        <div>
+                            <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Purity & Selection</h4>
+                            <p class="text-xs text-gray-400">Every batch is hand-sorted for size and consistency, ensuring only the most premium grades reach our jars.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Sustainable Luxury</h4>
+                            <p class="text-xs text-gray-400">Our packaging is 100% plastic-free and crafted for longevity, encouraging reuse and reducing gifting waste.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="media-container shadow-2xl reveal aspect-square lg:aspect-auto parallax-img">
@@ -217,8 +287,9 @@
             </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" class="py-32 section-padding md:px-20 bg-ivory">
-            <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20">
+            <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-20">
                 <div class="space-y-12 reveal">
                     <h2 class="text-5xl font-light">Contact Us</h2>
                     <div class="space-y-6 text-base">
@@ -240,18 +311,21 @@
         </section>
     </div>
 
-    <!-- PRODUCT DETAIL VIEW -->
+    <!-- PRODUCT VIEW (FULL DETAIL RESTORED) -->
     <div id="view-product" class="hidden min-h-screen pt-32 pb-20 section-padding md:px-20 bg-white">
         <div class="max-w-screen-2xl mx-auto">
             <a href="#collection" onclick="showHome()" class="text-xs uppercase tracking-[0.3em] text-gray-400 hover:text-gold transition inline-flex items-center gap-2 mb-12">← Back to Collection</a>
-            <div class="flex flex-col lg:flex-row gap-12 md:gap-20">
+            
+            <div class="flex flex-col lg:flex-row gap-20">
                 <div class="lg:w-3/5">
                     <div class="relative group overflow-hidden">
                         <div class="media-container aspect-[16/10] bg-gray-50 rounded-sm mb-6" id="product-carousel"></div>
-                        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm z-50">←</button>
-                        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm z-50">→</button>
+                        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm z-50">←</button>
+                        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm z-50">→</button>
                     </div>
                     <div class="flex justify-center gap-4 mb-12" id="carousel-dots"></div>
+
+                    <!-- LONG FORM PRODUCT CONTENT -->
                     <div class="space-y-20 border-t border-gray-100 pt-20">
                         <div class="space-y-8">
                             <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-gray-300">About this item</h4>
@@ -279,14 +353,18 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="lg:w-2/5 space-y-10 lg:sticky lg:top-32 h-fit">
                     <div>
                         <div class="inline-block px-3 py-1 bg-ivory text-xs uppercase tracking-widest font-bold border border-gold/20 text-gold mb-4 italic">Dubai Premium Grade</div>
                         <div class="text-[10px] uppercase tracking-widest text-gold font-bold mb-1"><span class="pulse-dot mr-1"></span> In Stock</div>
-                        <h2 id="p-title" class="text-4xl md:text-6xl font-light mb-4"></h2>
+                        <h2 id="p-title" class="text-6xl font-light mb-4"></h2>
                         <p id="p-price" class="text-3xl font-extralight tracking-tighter text-gold"></p>
                     </div>
+
                     <p id="p-desc" class="text-gray-500 text-lg font-light leading-relaxed"></p>
+
+                    <!-- CUSTOMIZER GRID -->
                     <div id="p-customizer" class="hidden space-y-6 pt-6 border-t border-gray-100">
                         <div class="flex justify-between items-end">
                             <h5 class="text-[10px] uppercase tracking-[0.2em] font-bold">Select 4 Dry Fruits (125g each)</h5>
@@ -294,10 +372,14 @@
                         </div>
                         <div class="grid grid-cols-2 gap-3" id="selection-grid"></div>
                     </div>
-                    <div class="pt-8 grid grid-cols-2 gap-4">
-                        <button onclick="handleAction('buy')" class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold hover:bg-gold transition">Buy Now</button>
-                        <button onclick="handleAction('add', this)" class="btn-ripple w-full py-6 border border-black/10 text-xs uppercase tracking-widest font-bold hover:bg-black hover:text-white transition">Add to Cart</button>
+
+                    <div class="pt-8">
+                        <div class="grid grid-cols-2 gap-4">
+                            <button onclick="handleAction('buy')" class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold hover:bg-gold transition">Buy Now</button>
+                            <button onclick="handleAction('add', this)" class="btn-ripple w-full py-6 border border-black/10 text-xs uppercase tracking-widest font-bold hover:bg-black hover:text-white transition">Add to Cart</button>
+                        </div>
                     </div>
+
                     <div class="pt-12 border-t border-gray-100">
                         <h5 class="text-xs uppercase tracking-widest font-bold text-gray-300 mb-6">Pairs well with...</h5>
                         <div id="p-pairing" class="flex items-center gap-4 cursor-pointer group"></div>
@@ -338,8 +420,7 @@
 
     <script>
         // --- DATA & STATE ---
-        let currentIdx = 0, activeMedia = [], selectedOptions = [], cart = [], currentProductId = null;
-        let pendingBasketAction = null, pendingProductId = null; 
+        let currentIdx = 0, activeMedia = [], selectedOptions = [], cart = [], currentProductId = null, pendingBasketAction = null, pendingProductId = null;
         let isGlobalMuted = true; 
         const originalTitle = document.title;
         const dryFruitOptions = ["Walnuts", "Pistachio", "Almonds", "Cashews", "Raisins", "Fox Nut (Makhana)"];
@@ -386,29 +467,21 @@
             }
         };
 
-        // --- GLOBAL EXPOSURE (BUG FIX) ---
         window.openProduct = function(id) {
-            const p = products[id]; 
-            if(!p) return;
+            const p = products[id]; if(!p) return;
             currentProductId = id; activeMedia = p.media; currentIdx = 0; selectedOptions = [];
-            
             document.getElementById('p-title').innerText = p.title;
             document.getElementById('p-price').innerText = `₹ ${p.price}`;
             document.getElementById('p-desc').innerText = p.desc;
-            
             document.getElementById('p-bullets').innerHTML = p.bullets.map(b => `<li>${b}</li>`).join('');
             document.getElementById('p-highlights').innerHTML = Object.entries(p.highlights).map(([k,v]) => `<div class="text-[10px] uppercase tracking-widest text-gray-400">${k}</div><div class="text-xs font-bold">${v}</div>`).join('');
             document.getElementById('p-details').innerHTML = Object.entries(p.details || {}).map(([k,v]) => `<div class="flex justify-between border-b border-gray-50 py-4"><span class="text-gray-400 uppercase text-[10px]">${k}</span><span>${v}</span></div>`).join('');
-            
-            const custom = document.getElementById('p-customizer');
-            custom.classList.remove('hidden'); 
+            document.getElementById('p-customizer').classList.remove('hidden'); 
             renderSelectionGrid();
             renderCarousel(true); 
-            
             const pairEl = document.getElementById('p-pairing');
             pairEl.innerHTML = `<img src="${p.pairing.img}" class="w-16 h-16 object-cover rounded-sm border border-gray-100 group-hover:border-gold transition"><span class="text-xs uppercase tracking-widest font-bold text-gray-400 group-hover:text-gold transition">${p.pairing.title}</span>`;
             pairEl.onclick = () => window.openProduct(p.pairing.id);
-
             document.getElementById('view-home').classList.add('hidden');
             document.getElementById('view-product').classList.remove('hidden');
             window.scrollTo(0,0);
@@ -425,18 +498,9 @@
 
         window.toggleCart = function(f) { document.getElementById('cart-drawer').classList.toggle('open', f); };
         window.toggleMenu = function() { document.getElementById('mobile-menu').classList.toggle('translate-x-full'); };
+        window.buyNow = function(id) { if(document.getElementById('view-product').classList.contains('hidden')) { openBasketPopover('buy', id); } else { handleAction('buy'); } };
+        window.addToCart = function(id, btn) { if(document.getElementById('view-product').classList.contains('hidden')) { openBasketPopover('add', id); } else { handleAction('add', btn); } };
 
-        window.buyNow = function(id) {
-            if(document.getElementById('view-product').classList.contains('hidden')) { openBasketPopover('buy', id); }
-            else { handleAction('buy'); }
-        };
-
-        window.addToCart = function(id, btn) {
-            if(document.getElementById('view-product').classList.contains('hidden')) { openBasketPopover('add', id); }
-            else { handleAction('add', btn); }
-        };
-
-        // --- INTERNAL LOGIC ---
         function initReveals() {
             gsap.registerPlugin(ScrollTrigger);
             gsap.utils.toArray('.reveal').forEach(el => {
@@ -447,10 +511,10 @@
 
         function handleContactSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('form-name').value.trim();
-            const contact = document.getElementById('form-contact').value.trim();
-            const msg = document.getElementById('form-message').value.trim();
-            if(!name || !contact || !msg) { alert("Please fill in all fields."); return; }
+            const n = document.getElementById('form-name').value.trim();
+            const c = document.getElementById('form-contact').value.trim();
+            const m = document.getElementById('form-message').value.trim();
+            if(!n || !c || !m) { alert("Please fill in all fields."); return; }
             alert('Message sent to ELMA Concierge.');
             e.target.reset();
         }
@@ -474,21 +538,18 @@
                         <button onclick="window.buyNow(${p.id})" class="py-4 bg-black text-white text-[10px] uppercase tracking-widest">Buy Now</button>
                         <button onclick="window.addToCart(${p.id}, this)" class="py-4 border border-black/10 text-[10px] uppercase tracking-widest">Add to Cart</button>
                     </div>
-                </div>
-            `).join('');
+                </div>`).join('');
         }
 
-        function openBasketPopover(action, id) {
-            pendingBasketAction = action; pendingProductId = id; selectedOptions = [];
+        function openBasketPopover(a, id) {
+            pendingBasketAction = a; pendingProductId = id; selectedOptions = [];
             document.getElementById('popover-product-name').innerText = products[id].title;
-            const popover = document.getElementById('basket-popover');
-            popover.style.display = 'flex';
+            const pop = document.getElementById('basket-popover');
+            pop.style.display = 'flex';
             renderPopoverSelectionGrid();
             gsap.fromTo('.modal-content', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4 });
         }
-
         function closeBasketPopover() { document.getElementById('basket-popover').style.display = 'none'; pendingBasketAction = null; pendingProductId = null; }
-
         function renderPopoverSelectionGrid() {
             const grid = document.getElementById('popover-selection-grid');
             grid.innerHTML = dryFruitOptions.map(opt => `<div class="chip ${selectedOptions.includes(opt) ? 'selected' : ''}" onclick="togglePopoverOption('${opt}')">${opt}</div>`).join('');
@@ -497,13 +558,11 @@
             if(selectedOptions.length === 4) { btn.classList.remove('opacity-30', 'cursor-not-allowed'); btn.innerText = pendingBasketAction === 'buy' ? 'Confirm & Buy Now' : 'Confirm & Add to Cart'; }
             else { btn.classList.add('opacity-30', 'cursor-not-allowed'); btn.innerText = 'Confirm Selection'; }
         }
-
         function togglePopoverOption(opt) {
             if(selectedOptions.includes(opt)) { selectedOptions = selectedOptions.filter(i => i !== opt); }
             else if (selectedOptions.length < 4) { selectedOptions.push(opt); }
             renderPopoverSelectionGrid();
         }
-
         function confirmPopoverAction() {
             if(selectedOptions.length !== 4) return;
             const p = products[pendingProductId]; const item = { ...p, selectedOptions: [...selectedOptions] };
@@ -517,7 +576,6 @@
             grid.innerHTML = dryFruitOptions.map(opt => `<div class="chip ${selectedOptions.includes(opt) ? 'selected' : ''}" onclick="toggleOption('${opt}')">${opt}</div>`).join('');
             document.getElementById('selection-count').innerText = `${selectedOptions.length} / 4`;
         }
-
         function toggleOption(opt) {
             if(selectedOptions.includes(opt)) { selectedOptions = selectedOptions.filter(i => i !== opt); }
             else if (selectedOptions.length < 4) { selectedOptions.push(opt); }
@@ -537,8 +595,7 @@
                             <button onclick="toggleAudio(${i})" class="audio-toggle">${isGlobalMuted ? '🔇' : '🔊'}</button>
                         ` : `<img src="${m.src}" onerror="this.src='https://placehold.co/800x500/fdfcf8/c5a059?text=ELMA'">`}
                         <div class="brand-watermark">ELMA</div>
-                    </div>
-                `).join('');
+                    </div>`).join('');
                 dots.innerHTML = activeMedia.map((_, i) => `<div class="w-2 h-2 rounded-full ${i === 0 ? 'bg-gold' : 'bg-gray-200'} cursor-pointer" onclick="setSlide(${i})"></div>`).join('');
             }
             const items = cont.querySelectorAll('.carousel-item');
@@ -566,11 +623,11 @@
         function nextSlide() { currentIdx = (currentIdx + 1) % activeMedia.length; renderCarousel(); }
         function prevSlide() { currentIdx = (currentIdx - 1 + activeMedia.length) % activeMedia.length; renderCarousel(); }
 
-        function handleAction(action, btn) {
+        function handleAction(a, btn) {
             const p = products[currentProductId];
             if(selectedOptions.length !== 4) { alert("Please select 4 dry fruits."); return; }
             const item = {...p, selectedOptions: [...selectedOptions]};
-            if(action === 'buy') { window.open(`https://wa.me/919315328460?text=${encodeURIComponent(formatWhatsApp([item]))}`, '_blank'); }
+            if(a === 'buy') { window.open(`https://wa.me/919315328460?text=${encodeURIComponent(formatWhatsApp([item]))}`, '_blank'); }
             else { 
                 cart.push(item); updateCartUI(); window.toggleCart(true); 
                 if(btn) { const t = btn.innerText; btn.innerText = "✓ Added"; setTimeout(()=>btn.innerText=t, 2000); }
@@ -610,14 +667,12 @@
             renderHomepage(); initReveals();
             gsap.to("#preloader", { opacity: 0, duration: 0.8, onComplete: () => document.getElementById('preloader').style.display = 'none' }); 
         };
-        
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
             const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
             document.getElementById('scroll-bar').style.width = `${progress}%`;
             window.scrollY > 50 ? nav.classList.add('nav-sticky') : nav.classList.remove('nav-sticky');
         });
-
         const cursorDot = document.getElementById('cursor-dot'); const cursorRing = document.getElementById('cursor-ring');
         document.addEventListener('mousemove', (e) => { gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.1, opacity: 1 }); gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: 0.4, opacity: 1 }); });
     </script>
