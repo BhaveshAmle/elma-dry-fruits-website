@@ -31,7 +31,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:italic,wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     [
@@ -63,26 +63,150 @@
     </script>
 
     <style>
-        :root { --ivory: #FDFCF8; --gold: #C5A059; --charcoal: #1A1A1A; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--charcoal); overflow-x: hidden; cursor: auto; }
+        :root {
+            --ivory: #F5EFE6;
+            --ivory-strong: #f9f4ee;
+            --gold: #D4AF37;
+            --gold-deep: #b58b1a;
+            --charcoal: #0D0D0D;
+            --charcoal-soft: #1b1b1b;
+            --line: rgba(212,175,55,0.2);
+            --white-soft: rgba(255,255,255,0.72);
+            --shadow: 0 25px 60px rgba(13, 13, 13, 0.12);
+            --shadow-strong: 0 30px 70px rgba(13, 13, 13, 0.18);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #f6f1ea 0%, #f2ece4 100%);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            cursor: auto;
+            line-height: 1.7;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; }
         .serif { font-family: 'Playfair Display', serif; }
-        
-        #main-nav { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); letter-spacing: 0.15em; }
-        .nav-link { font-size: 12px; font-weight: 600; text-transform: uppercase; white-space: nowrap; transition: opacity 0.5s ease; }
-        .nav-sticky { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding-top: 1.2rem !important; padding-bottom: 1.2rem !important; color: var(--charcoal) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .nav-sticky #nav-logo { transform: scale(0.85); transition: transform 0.5s ease; }
+
+        .section-padding { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .bg-ivory { background-color: var(--ivory); }
+        .bg-charcoal { background-color: var(--charcoal); }
+        .text-gold { color: var(--gold); }
+        .text-charcoal { color: var(--charcoal); }
+        .section-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 5rem);
+            line-height: 0.98;
+            letter-spacing: -0.04em;
+            color: var(--charcoal);
+            margin: 0;
+        }
+        .luxury-btn,
+        .luxury-btn-inverse,
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            border-radius: 999px;
+            padding: 1.05rem 2rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .luxury-btn,
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, #E7C96D 100%);
+            color: #111;
+            box-shadow: 0 14px 28px rgba(212,175,55,0.22);
+        }
+        .luxury-btn:hover,
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(212,175,55,0.28);
+        }
+        .luxury-btn-inverse,
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.38);
+            background: rgba(255,255,255,0.04);
+            color: #fff;
+            backdrop-filter: blur(12px);
+        }
+        .luxury-btn-inverse:hover,
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.52);
+            transform: translateY(-2px);
+        }
+
+        #main-nav {
+            transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.18em;
+        }
+        .nav-link {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: opacity 0.5s ease, color 0.3s ease;
+        }
+        .nav-sticky {
+            background: rgba(245, 239, 230, 0.92);
+            backdrop-filter: blur(16px);
+            padding-top: 1.2rem !important;
+            padding-bottom: 1.2rem !important;
+            color: var(--charcoal) !important;
+            border-bottom: 1px solid rgba(13,13,13,0.08);
+            box-shadow: 0 12px 30px rgba(13, 13, 13, 0.05);
+        }
+        .nav-sticky #nav-logo { transform: scale(0.9); transition: transform 0.5s ease; }
         .nav-sticky #nav-phone { opacity: 0; pointer-events: none; }
 
-        .media-container { position: relative; width: 100%; height: auto; overflow: hidden; background-color: #eee; }
-        .media-container img, .media-container video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
-        .media-container:hover img, .media-container:hover video { transform: scale(1.05); }
-        
+        .media-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background-color: #ece5dd;
+            border-radius: 24px;
+            isolation: isolate;
+        }
+        .media-container img, .media-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+        }
+        .media-container:hover img, .media-container:hover video { transform: scale(1.06); filter: saturate(1.05); }
+
         .brand-watermark {
-            position: absolute; bottom: 10px; right: 10px; z-index: 30;
-            background: rgba(253, 252, 248, 0.9); border: 1px solid var(--gold);
-            padding: 3px 7px; font-size: 9px; letter-spacing: 1px;
-            font-weight: 800; color: var(--gold); text-transform: uppercase;
-            pointer-events: none; border-radius: 1px;
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            z-index: 30;
+            background: rgba(245, 239, 230, 0.9);
+            border: 1px solid rgba(212,175,55,0.55);
+            padding: 5px 10px;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            pointer-events: none;
+            border-radius: 999px;
         }
 
         .carousel-item { display: none; width: 100%; height: 100%; }
@@ -91,20 +215,156 @@
 
         .reveal { opacity: 0; transform: translateY(30px); }
         .whatsapp-float { position: fixed; bottom: 25px; right: 25px; z-index: 1000; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; }
-        
-        #hero-video-wrap { position: absolute; inset: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #3a2f22, #1a1512); }
-        #hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%); z-index: 5; transition: background 0.3s ease; }
+
+        #hero-video-wrap {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #201912 0%, #0d0d0d 100%);
+        }
+        #hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.9) contrast(1.05);
+        }
+        .hero-scrim {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0.44) 35%, rgba(13,13,13,0.68) 100%);
+            z-index: 5;
+            transition: background 0.3s ease;
+        }
+        .hero-glow {
+            position: absolute;
+            inset: 12% 18%;
+            border: 1px solid rgba(212,175,55,0.35);
+            border-radius: 34px;
+            z-index: 6;
+            pointer-events: none;
+            box-shadow: inset 0 0 40px rgba(212,175,55,0.08), 0 0 50px rgba(212,175,55,0.09);
+        }
         .hero-emblem {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 340px; height: 340px; border-radius: 50%;
-            border: 1px solid rgba(197,160,89,0.5);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 6; pointer-events: none; opacity: 0.55;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.38);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 6;
+            pointer-events: none;
+            opacity: 0.58;
+            box-shadow: 0 0 60px rgba(212,175,55,0.12);
         }
         .hero-emblem::before {
-            content: 'ELMA'; font-family: 'Playfair Display', serif; font-style: italic;
-            font-size: 14px; letter-spacing: 0.3em; color: var(--gold);
+            content: 'ELMA';
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            letter-spacing: 0.42em;
+            color: rgba(212,175,55,0.9);
+        }
+
+        .hero-intro {
+            position: relative;
+            z-index: 10;
+            max-width: 820px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+        }
+        .hero-intro .eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: rgba(245,239,230,0.85);
+            font-weight: 500;
+        }
+        .hero-intro h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: clamp(4rem, 9vw, 9rem);
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 12px 32px rgba(0,0,0,0.18);
+        }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255,255,255,0.78);
+            max-width: 620px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        .premium-card,
+        .glass-card,
+        .feature-card,
+        .review-card,
+        .hamper-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .glass-card {
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(212,175,55,0.18);
+        }
+        .feature-card,
+        .hamper-card,
+        .review-card {
+            background: rgba(255,255,255,0.66);
+            border: 1px solid rgba(13,13,13,0.05);
+            box-shadow: var(--shadow);
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.26);
+            border: 1px solid rgba(13,13,13,0.06);
+            border-radius: 26px;
+            box-shadow: 0 18px 38px rgba(13,13,13,0.08);
+            padding: 1.2rem;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212,175,55,0.38);
+            box-shadow: 0 30px 60px rgba(13,13,13,0.12);
+        }
+        .product-card .media-container {
+            border-radius: 18px;
+            aspect-ratio: 4 / 5;
+            margin-bottom: 1.25rem;
+        }
+
+        .stat-card {
+            background: rgba(13,13,13,0.04);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 22px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .stat-card strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            line-height: 1;
+            color: var(--charcoal);
         }
 
         #preloader { position: fixed; inset: 0; background: var(--ivory); z-index: 3000; display: flex; align-items: center; justify-content: center; }
@@ -114,13 +374,13 @@
         @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
         #cursor-dot { width: 6px; height: 6px; background: var(--gold); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); display: none; }
-        #cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(197,160,89,0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: none; }
+        #cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(212,175,55,0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 4000; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: none; }
 
         .chip { border: 1px solid #e5e7eb; transition: all 0.3s; cursor: pointer; padding: 8px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
         .chip.selected { border-color: var(--gold); background: var(--gold); color: white; }
         #cart-drawer { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         #cart-drawer.open { transform: translateX(0); }
-        
+
         #basket-popover { display: none; position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; }
         .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); }
         .modal-content { position: relative; width: 90%; max-width: 450px; background: var(--ivory); padding: 40px; border-radius: 2px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
@@ -132,8 +392,8 @@
         .audio-toggle { position: absolute; bottom: 20px; left: 20px; z-index: 40; background: rgba(0,0,0,0.5); color: white; padding: 8px; border-radius: 50%; cursor: pointer; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
 
         @media (hover: hover) and (pointer: fine) { #cursor-dot, #cursor-ring { display: block; } }
-        @media (prefers-reduced-motion: reduce) { 
-            .reveal, .pulse-dot, #cursor-ring, .media-container img { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; } 
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .pulse-dot, #cursor-ring, .media-container img { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
         }
     </style>
 </head>
@@ -216,7 +476,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[1100] translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8">
-        <button id="menu-close" class="absolute top-8 right-8 text-3xl">✕</button>
+        <button id="menu-close" onclick="toggleMenu()" class="absolute top-8 right-8 text-3xl">✕</button>
         <a href="#collection" class="text-2xl font-light" onclick="toggleMenu(); showHome();">The Collection</a>
         <a href="#story" class="text-2xl font-light" onclick="toggleMenu(); showHome();">Our Story</a>
         <a href="#contact" class="text-2xl font-bold text-gold" onclick="toggleMenu(); showHome();">Contact Us</a>
@@ -232,51 +492,216 @@
                 </video>
             </div>
             <div class="hero-scrim" id="hero-fade-scrim"></div>
+            <div class="hero-glow"></div>
             <div class="hero-emblem"></div>
 
-            <div class="relative z-10 px-6 max-w-4xl">
-                <!-- 2. Hidden SEO H1 -->
-                <h1 class="text-white text-7xl md:text-[9rem] font-extralight tracking-tighter mb-4 leading-none reveal">
-                    ELMA <span class="sr-only">Premium Dry Fruits Gift Boxes & Luxury Gifting India</span>
+            <div class="hero-intro reveal">
+                <span class="eyebrow">Luxury gifting, beautifully curated</span>
+                <h1>
+                    ELMA
+                    <span class="sr-only">Premium Dry Fruits Gift Boxes & Luxury Gifting India</span>
                 </h1>
-                <div class="flex flex-col md:flex-row gap-4 justify-center reveal pt-8">
-                    <a href="#collection" class="px-12 py-5 bg-white text-black text-xs uppercase tracking-[0.3em] hover:bg-gold hover:text-white transition-all">Explore Collection</a>
-                    <a href="#contact" class="px-12 py-5 border border-white/30 text-white text-xs uppercase tracking-[0.3em] hover:bg-white/10 transition-all">Enquire for Bulk</a>
+                <p class="hero-subtitle">Handpicked dry fruits and artisanal gifting experiences designed for memorable celebrations, thoughtful business gifting and elevated hosting.</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center pt-2">
+                    <a href="#collection" class="luxury-btn">Explore Collection</a>
+                    <a href="#contact" class="luxury-btn-inverse">Enquire for Bulk</a>
                 </div>
             </div>
             <div class="brand-watermark">ELMA</div>
         </header>
 
-        <!-- THE COLLECTION -->
-        <section id="collection" class="py-32 section-padding md:px-20 bg-ivory">
+        <section id="featured" class="py-24 section-padding md:px-20 bg-[#f6f1ea]">
             <div class="max-w-screen-2xl mx-auto">
-                <div class="mb-24 reveal">
-                    <h2 class="text-5xl md:text-7xl font-light tracking-tight mb-4 text-charcoal">The Collection</h2>
-                    <p class="text-gray-400 uppercase text-xs tracking-[0.4em] font-semibold">Exquisite selections for every palate</p>
+                <div class="mb-16 reveal text-center md:text-left">
+                    <div class="section-kicker mb-4">Crafted for gifting</div>
+                    <h2 class="section-title">Premium gifting, curated with joy.</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-12" id="homepage-grid"></div>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="feature-card p-8 reveal">
+                        <div class="media-container mb-6" style="aspect-ratio: 1.2; border-radius: 18px;">
+                            <img src="product1/Golden_wire_mesh_gift_basket_202608222048.jpeg" alt="ELMA The Gift Basket" />
+                        </div>
+                        <div class="section-kicker mb-2">Signature box</div>
+                        <h3 class="text-2xl font-light mb-3">The Gift Basket</h3>
+                        <p class="text-sm text-gray-600">Artisan gold mesh gifting, premium nuts and raisins arranged in keepsake jars.</p>
+                    </div>
+                    <div class="feature-card p-8 reveal">
+                        <div class="media-container mb-6" style="aspect-ratio: 1.2; border-radius: 18px;">
+                            <img src="product2/Gift_box_with_glass_jars_202608222109.jpeg" alt="ELMA Signature Box" />
+                        </div>
+                        <div class="section-kicker mb-2">Luxury range</div>
+                        <h3 class="text-2xl font-light mb-3">The Signature Box</h3>
+                        <p class="text-sm text-gray-600">Timeless wooden presentation with satin-lined glass jars for elevated celebrations.</p>
+                    </div>
+                    <div class="feature-card p-8 reveal">
+                        <div class="media-container mb-6" style="aspect-ratio: 1.2; border-radius: 18px;">
+                            <img src="product3/Gold_serving_tray_display_2K_202608222039.jpeg" alt="ELMA Serving Tray" />
+                        </div>
+                        <div class="section-kicker mb-2">Hosting edit</div>
+                        <h3 class="text-2xl font-light mb-3">The Serving Tray</h3>
+                        <p class="text-sm text-gray-600">A richly detailed platter for festive hosting, gifting, and elegant entertaining.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE COLLECTION -->
+        <section id="collection" class="py-28 section-padding md:px-20 bg-[#f3efe9]">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="mb-16 reveal flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+                    <div>
+                        <div class="section-kicker mb-4">The collection</div>
+                        <h2 class="section-title">Curated for every special moment.</h2>
+                    </div>
+                    <p class="text-sm uppercase tracking-[0.28em] text-gray-500">Exquisite selections for every palate</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8" id="homepage-grid"></div>
+            </div>
+        </section>
+
+        <section id="hampers" class="py-28 section-padding md:px-20 bg-[#0d0d0d] text-white">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="mb-16 reveal text-center">
+                    <div class="section-kicker text-gold mb-4">Premium gift hampers</div>
+                    <h2 class="section-title text-white">Luxury that lingers long after the last bite.</h2>
+                </div>
+                <div class="grid gap-8 lg:grid-cols-3">
+                    <div class="hamper-card p-8 reveal">
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-xs uppercase tracking-[0.3em] text-gold">01</span>
+                            <span class="text-xs uppercase tracking-[0.15em] text-gray-500">Festive</span>
+                        </div>
+                        <h3 class="text-3xl font-light mb-3">Royal Celebration Set</h3>
+                        <p class="text-gray-600 mb-6">A luxurious box of almonds, pistachios and raisins in glass jars, ideal for weddings and festive gifting.</p>
+                        <div class="media-container" style="aspect-ratio: 4 / 3; border-radius: 18px;">
+                            <img src="product2/Hands_lifting_gift_box_tray_202608222109.jpeg" alt="Royal Celebration Set" />
+                        </div>
+                    </div>
+                    <div class="hamper-card p-8 reveal">
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-xs uppercase tracking-[0.3em] text-gold">02</span>
+                            <span class="text-xs uppercase tracking-[0.15em] text-gray-500">Corporate</span>
+                        </div>
+                        <h3 class="text-3xl font-light mb-3">Executive Signature Hamper</h3>
+                        <p class="text-gray-600 mb-6">Sleek gifting for relationships that matter—premium, tasteful and perfectly polished for business notes.</p>
+                        <div class="media-container" style="aspect-ratio: 4 / 3; border-radius: 18px;">
+                            <img src="product1/Wire_mesh_gift_basket_photography_202608222051.jpeg" alt="Executive Signature Hamper" />
+                        </div>
+                    </div>
+                    <div class="hamper-card p-8 reveal">
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-xs uppercase tracking-[0.3em] text-gold">03</span>
+                            <span class="text-xs uppercase tracking-[0.15em] text-gray-500">Home host</span>
+                        </div>
+                        <h3 class="text-3xl font-light mb-3">The Host's Tray</h3>
+                        <p class="text-gray-600 mb-6">A statement serving platter designed for memorable gatherings, brunch spreads, and elevated entertaining.</p>
+                        <div class="media-container" style="aspect-ratio: 4 / 3; border-radius: 18px;">
+                            <img src="product3/Gold_tray_with_dry_fruits_202608222040.jpeg" alt="The Host's Tray" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-28 section-padding md:px-20 bg-[#f5efe6]">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="mb-16 reveal text-center">
+                    <div class="section-kicker mb-4">Why choose us</div>
+                    <h2 class="section-title">A refined approach to health, taste and gifting.</h2>
+                </div>
+                <div class="grid gap-6 md:grid-cols-4">
+                    <div class="stat-card reveal">
+                        <strong>100%</strong>
+                        <p class="text-xs uppercase tracking-[0.22em] text-gray-500">Premium sourcing</p>
+                    </div>
+                    <div class="stat-card reveal">
+                        <strong>4x</strong>
+                        <p class="text-xs uppercase tracking-[0.22em] text-gray-500">Luxury packaging</p>
+                    </div>
+                    <div class="stat-card reveal">
+                        <strong>500g</strong>
+                        <p class="text-xs uppercase tracking-[0.22em] text-gray-500">Signature box fill</p>
+                    </div>
+                    <div class="stat-card reveal">
+                        <strong>24/7</strong>
+                        <p class="text-xs uppercase tracking-[0.22em] text-gray-500">Concierge support</p>
+                    </div>
+                </div>
+                <div class="grid gap-8 mt-16 md:grid-cols-3">
+                    <div class="glass-card p-8 reveal">
+                        <div class="text-3xl mb-5">✦</div>
+                        <h3 class="text-2xl font-light mb-3">Handpicked freshness</h3>
+                        <p class="text-sm text-gray-600">Every batch is checked for texture, flavor and premium quality before it reaches your gifting box.</p>
+                    </div>
+                    <div class="glass-card p-8 reveal">
+                        <div class="text-3xl mb-5">✦</div>
+                        <h3 class="text-2xl font-light mb-3">Reusable luxury design</h3>
+                        <p class="text-sm text-gray-600">Our packaging is made to feel beautiful, purposeful and lasting—long after the dry fruits are enjoyed.</p>
+                    </div>
+                    <div class="glass-card p-8 reveal">
+                        <div class="text-3xl mb-5">✦</div>
+                        <h3 class="text-2xl font-light mb-3">Thoughtful gifting</h3>
+                        <p class="text-sm text-gray-600">From celebrations to corporate appreciation, each ELMA hamper is thoughtfully curated to make an impression.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-28 section-padding md:px-20 bg-white">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="mb-16 reveal text-center">
+                    <div class="section-kicker mb-4">Testimonials</div>
+                    <h2 class="section-title">Loved by hosts, families and gifting patrons.</h2>
+                </div>
+                <div class="grid gap-8 lg:grid-cols-3">
+                    <div class="review-card p-8 reveal">
+                        <div class="mb-6 text-gold text-xl">★★★★★</div>
+                        <p class="text-gray-600 mb-8">“The packaging looked elegant and the dry fruits tasted premium from the first bite. It felt far more luxurious than any gifting box I’ve seen.”</p>
+                        <div class="border-t border-gray-200 pt-5">
+                            <div class="font-semibold text-black">Aanya Sharma</div>
+                            <div class="text-xs uppercase tracking-[0.2em] text-gray-500">Wedding gifting</div>
+                        </div>
+                    </div>
+                    <div class="review-card p-8 reveal">
+                        <div class="mb-6 text-gold text-xl">★★★★★</div>
+                        <p class="text-gray-600 mb-8">“ELMA made our corporate gifting feel elevated and thoughtful. The presentation was immaculate, and the quality met expectations perfectly.”</p>
+                        <div class="border-t border-gray-200 pt-5">
+                            <div class="font-semibold text-black">Rahul Mehta</div>
+                            <div class="text-xs uppercase tracking-[0.2em] text-gray-500">Corporate client</div>
+                        </div>
+                    </div>
+                    <div class="review-card p-8 reveal">
+                        <div class="mb-6 text-gold text-xl">★★★★★</div>
+                        <p class="text-gray-600 mb-8">“Beautifully designed and deliciously fresh. It feels like gifting a keepsake rather than just a product, and the tray is still on display at home.”</p>
+                        <div class="border-t border-gray-200 pt-5">
+                            <div class="font-semibold text-black">Nisha Kapoor</div>
+                            <div class="text-xs uppercase tracking-[0.2em] text-gray-500">Festival gifting</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- OUR STORY -->
-        <section id="story" class="py-40 section-padding md:px-20 bg-white">
+        <section id="story" class="py-28 section-padding md:px-20 bg-[#f9f5f0]">
             <div class="max-w-screen-xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
                 <div class="space-y-10 reveal" id="story-text-container">
-                    <h2 class="text-6xl font-light leading-tight">The <span class="serif italic">ELMA</span> Narrative</h2>
+                    <div class="section-kicker">Our story</div>
+                    <h2 class="section-title">The <span class="serif italic">ELMA</span> narrative.</h2>
                     <div class="w-20 h-[1px] bg-gold"></div>
-                    <div class="space-y-6 text-gray-500 text-lg font-light leading-relaxed story-paragraphs">
+                    <div class="space-y-6 text-gray-600 text-lg font-light leading-relaxed story-paragraphs">
                         <p>ELMA was born from a desire to transform the simple act of sharing <strong>premium dry fruits</strong> into a refined ritual. We believe that nature’s bounty deserves more than generic packaging; it deserves a stage. By meticulously sourcing current-season harvests from Dubai and global heritage markets, we ensure every <strong>nut and raisin gift box</strong> meets a standard of crunch and flavor rarely found in ordinary markets.</p>
                         <p>Our philosophy centers on the 'Keepsake Experience.' Each ELMA selection is housed in reusable glass jars, hand-finished wooden cases, or artisan gold trays. These aren't just containers—they are designed as <strong>luxury dry fruit hampers</strong> to be integrated into your home long after the contents have been enjoyed, serving as a lasting reminder of a thoughtful gesture.</p>
                         <p>Whether it is a festival celebration, a milestone wedding, or a corporate token of appreciation, ELMA provides a <strong>dry fruit gift box</strong> that speaks of quality, health, and effortless sophistication. We invite you to gift not just a snack, but a beautifully presented piece of nature.</p>
                     </div>
-                    <div class="grid grid-cols-2 gap-8 pt-6 border-t border-gray-100">
+                    <div class="grid grid-cols-2 gap-8 pt-6 border-t border-gray-200">
                         <div>
                             <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Purity & Selection</h4>
-                            <p class="text-xs text-gray-400">Every batch is hand-sorted for size and consistency, ensuring only the most premium grades reach our jars.</p>
+                            <p class="text-xs text-gray-500">Every batch is hand-sorted for size and consistency, ensuring only the most premium grades reach our jars.</p>
                         </div>
                         <div>
                             <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Sustainable Luxury</h4>
-                            <p class="text-xs text-gray-400">Our packaging is 100% plastic-free and crafted for longevity, encouraging reuse and reducing gifting waste.</p>
+                            <p class="text-xs text-gray-500">Our packaging is 100% plastic-free and crafted for longevity, encouraging reuse and reducing gifting waste.</p>
                         </div>
                     </div>
                 </div>
@@ -288,21 +713,23 @@
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="py-32 section-padding md:px-20 bg-ivory">
+        <section id="contact" class="py-28 section-padding md:px-20 bg-[#f0ebdf]">
             <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-20">
                 <div class="space-y-12 reveal">
-                    <h2 class="text-5xl font-light">Contact Us</h2>
-                    <div class="space-y-6 text-base">
+                    <div class="section-kicker">Contact</div>
+                    <h2 class="section-title">Let’s create a gifting moment worth keeping.</h2>
+                    <div class="space-y-6 text-base text-gray-700">
                         <div class="flex items-center gap-6"><span class="text-gold serif italic text-2xl font-bold">Call</span> <span class="tracking-widest">+91 9315328460</span></div>
                         <div class="flex items-center gap-6"><span class="text-gold serif italic text-2xl font-bold">Mail</span> <span class="tracking-widest lowercase">elma_dryfruits@gmail.com</span></div>
                     </div>
+                    <a href="https://wa.me/919315328460" target="_blank" class="luxury-btn mt-6">WhatsApp Concierge</a>
                 </div>
-                <div class="bg-white p-10 md:p-16 shadow-sm reveal">
+                <div class="bg-white p-10 md:p-16 shadow-[0_25px_60px_rgba(13,13,13,0.08)] reveal">
                     <form id="contact-form" onsubmit="handleContactSubmit(event)">
                         <div class="space-y-8">
-                            <input type="text" id="form-name" placeholder="Your Name" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light">
-                            <input type="text" id="form-contact" placeholder="Phone / Email" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light">
-                            <textarea id="form-message" placeholder="Tell us what you are looking for..." rows="4" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light"></textarea>
+                            <input type="text" id="form-name" placeholder="Your Name" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light text-sm">
+                            <input type="text" id="form-contact" placeholder="Phone / Email" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light text-sm">
+                            <textarea id="form-message" placeholder="Tell us what you are looking for..." rows="4" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-gold transition font-light text-sm"></textarea>
                             <button class="w-full py-6 bg-black text-white text-xs uppercase tracking-widest font-bold hover:bg-gold transition">Send Enquiry</button>
                         </div>
                     </form>
@@ -390,30 +817,39 @@
     </div>
 
     <footer class="bg-charcoal text-white/50 py-24 section-padding md:px-20 text-xs uppercase tracking-[0.2em]">
-        <div class="max-w-screen-xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
-            <div class="space-y-6">
-                <div class="text-white text-2xl tracking-[0.4em] font-light">ELMA</div>
-                <p class="normal-case tracking-normal text-sm font-light leading-relaxed">Nature, beautifully presented. <br> Crafted for soulful gifting.</p>
+        <div class="max-w-screen-xl mx-auto space-y-14">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-white/10 pb-10">
+                <div>
+                    <div class="text-white text-2xl tracking-[0.4em] font-light">ELMA</div>
+                    <p class="normal-case tracking-normal text-sm font-light leading-relaxed mt-4 text-white/60">Nature, beautifully presented. Crafted for soulful gifting.</p>
+                </div>
+                <a href="https://wa.me/919315328460" target="_blank" class="luxury-btn bg-[#25D366] text-[#0b0b0b] border-none shadow-none">WhatsApp us</a>
             </div>
-            <div>
-                <h5 class="text-white mb-8">Links</h5>
-                <ul class="space-y-4">
-                    <li><a href="#collection" class="hover:text-white" onclick="showHome()">Collection</a></li>
-                    <li><a href="#story" class="hover:text-white" onclick="showHome()">Our Story</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-white mb-8">Contact</h5>
-                <ul class="space-y-4">
-                    <li>+91 9315328460</li>
-                    <li class="lowercase">elma_dryfruits@gmail.com</li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-white mb-8">Follow</h5>
-                <ul class="space-y-4">
-                    <li><a href="https://www.instagram.com/elma_dryfruitsnuts/" class="hover:text-gold transition">Instagram</a></li>
-                </ul>
+            <div class="grid md:grid-cols-4 gap-12 text-center md:text-left">
+                <div class="space-y-6">
+                    <div class="text-white text-2xl tracking-[0.4em] font-light">ELMA</div>
+                    <p class="normal-case tracking-normal text-sm font-light leading-relaxed">Luxury gifting for festive and unforgettable moments.</p>
+                </div>
+                <div>
+                    <h5 class="text-white mb-8">Links</h5>
+                    <ul class="space-y-4">
+                        <li><a href="#collection" class="hover:text-white" onclick="showHome()">Collection</a></li>
+                        <li><a href="#story" class="hover:text-white" onclick="showHome()">Our Story</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white mb-8">Contact</h5>
+                    <ul class="space-y-4">
+                        <li>+91 9315328460</li>
+                        <li class="lowercase">elma_dryfruits@gmail.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white mb-8">Follow</h5>
+                    <ul class="space-y-4">
+                        <li><a href="https://www.instagram.com/elma_dryfruitsnuts/" class="hover:text-gold transition">Instagram</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
@@ -522,23 +958,24 @@
         function renderHomepage() {
             const grid = document.getElementById('homepage-grid');
             grid.innerHTML = Object.values(products).map(p => `
-                <div class="group reveal">
-                    <div class="media-container aspect-[4/5] mb-6 shadow-sm cursor-pointer parallax-img" onclick="window.openProduct(${p.id})">
+                <article class="product-card group reveal">
+                    <div class="media-container cursor-pointer parallax-img" onclick="window.openProduct(${p.id})">
                         <img src="${p.media[0].src}" alt="ELMA ${p.title}" onerror="this.src='https://placehold.co/400x500/fdfcf8/c5a059?text=ELMA'">
                         <div class="brand-watermark">ELMA</div>
                     </div>
-                    <div class="flex justify-between items-start mb-2 px-1">
+                    <div class="flex justify-between items-start mb-2 px-1 pt-2">
                         <div class="space-y-1">
                             <div class="text-[9px] uppercase tracking-widest text-gold font-bold"><span class="pulse-dot mr-1"></span> In Stock</div>
-                            <h3 onclick="window.openProduct(${p.id})" class="text-xl font-light cursor-pointer">${p.title}</h3>
+                            <h3 onclick="window.openProduct(${p.id})" class="text-2xl font-light cursor-pointer leading-tight">${p.title}</h3>
                         </div>
                         <p class="text-gold text-base tracking-widest font-medium">₹ ${p.price}</p>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 mt-6">
-                        <button onclick="window.buyNow(${p.id})" class="py-4 bg-black text-white text-[10px] uppercase tracking-widest">Buy Now</button>
-                        <button onclick="window.addToCart(${p.id}, this)" class="py-4 border border-black/10 text-[10px] uppercase tracking-widest">Add to Cart</button>
+                    <p class="px-1 text-sm text-gray-600 leading-relaxed">${p.desc}</p>
+                    <div class="grid grid-cols-2 gap-3 mt-6">
+                        <button onclick="window.buyNow(${p.id})" class="py-4 bg-black text-white text-[10px] uppercase tracking-widest rounded-full hover:bg-gold transition">Buy Now</button>
+                        <button onclick="window.addToCart(${p.id}, this)" class="py-4 border border-black/10 text-[10px] uppercase tracking-widest rounded-full hover:bg-black hover:text-white transition">Add to Cart</button>
                     </div>
-                </div>`).join('');
+                </article>`).join('');
         }
 
         function openBasketPopover(a, id) {
